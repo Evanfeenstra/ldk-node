@@ -253,7 +253,7 @@ impl_writeable_tlv_based_enum!(Event,
 		(2, payment_id, required),
 		(4, claimable_amount_msat, required),
 		(6, claim_deadline, option),
-		(8, custom_records, optional_vec),
+		(7, custom_records, optional_vec),
 	},
 	(7, PaymentForwarded) => {
 		(0, prev_channel_id, required),

@@ -366,7 +366,7 @@ dictionary SendingParameters {
 };
 
 dictionary CustomTlvRecord {
-	u64 kind;
+	u64 type_num;
 	sequence<u8> value;
 };
 

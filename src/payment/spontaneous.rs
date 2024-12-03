@@ -114,7 +114,7 @@ impl SpontaneousPayment {
 
 		let recipient_fields = match custom_tlvs {
 			Some(tlvs) => RecipientOnionFields::spontaneous_empty()
-				.with_custom_tlvs(tlvs.into_iter().map(|tlv| (tlv.kind, tlv.value)).collect())
+				.with_custom_tlvs(tlvs.into_iter().map(|tlv| (tlv.type_num, tlv.value)).collect())
 				.map_err(|e| {
 					log_error!(self.logger, "Failed to send payment with custom TLVs: {:?}", e);
 					Error::InvalidCustomTlvs

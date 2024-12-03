@@ -754,7 +754,7 @@ pub(crate) fn do_channel_full_cycle<E: ElectrumApi>(
 	// Test spontaneous/keysend payments
 	println!("\nA send_spontaneous_payment");
 	let keysend_amount_msat = 2500_000;
-	let custom_tlvs = vec![CustomTlvRecord { kind: 13377331, value: vec![1, 2, 3] }];
+	let custom_tlvs = vec![CustomTlvRecord { type_num: 13377331, value: vec![1, 2, 3] }];
 	let keysend_payment_id = node_a
 		.spontaneous_payment()
 		.send_with_custom_tlvs(keysend_amount_msat, node_b.node_id(), None, custom_tlvs.clone())

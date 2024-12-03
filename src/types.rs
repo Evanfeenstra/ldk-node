@@ -354,18 +354,18 @@ pub struct PeerDetails {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CustomTlvRecord {
 	/// Type number.
-	pub kind: u64,
+	pub type_num: u64,
 	/// Serialized value.
 	pub value: Vec<u8>,
 }
 
 impl_writeable_tlv_based!(CustomTlvRecord, {
-	(0, kind, required),
-	(1, value, required),
+	(0, type_num, required),
+	(2, value, required),
 });
 
 impl From<&(u64, Vec<u8>)> for CustomTlvRecord {
 	fn from(tlv: &(u64, Vec<u8>)) -> Self {
-		CustomTlvRecord { kind: tlv.0, value: tlv.1.clone() }
+		CustomTlvRecord { type_num: tlv.0, value: tlv.1.clone() }
 	}
 }
